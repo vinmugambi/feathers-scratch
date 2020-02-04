@@ -60,7 +60,7 @@
             </form>
 
             <ul id="ideas">
-               
+
             </ul>
         </div>
     </div>
@@ -80,19 +80,19 @@
         async function postIdea(e) {
             e.preventDefault();
 
-            let text = document.getElementById("idea-name").value;
-            let tech = document.getElementById("idea-lang").value;
-            let viewer = document.getElementById("idea-idealist").value;
+            let text = document.getElementById("idea-name");
+            let tech = document.getElementById("idea-lang");
+            let viewer = document.getElementById("idea-idealist");
 
             app.service("ideas").create({
-                text: text,
-                tech: tech,
-                viewer: viewer,
+                text: text.value,
+                tech: tech.value,
+                viewer: viewer.value,
             })
 
-            text = "";
-            tech = "";
-            viewer = "";
+            text.value = "";
+            tech.value = "";
+            viewer.value = "";
         }
 
         function renderIdea(idea) {
@@ -101,15 +101,17 @@
             `
         }
 
-        async function init (){
+        async function init() {
             const ideas = await app.service("ideas").find();
 
             ideas.forEach(renderIdea)
 
-            app.service("ideas").on("created",renderIdea)
+            app.service("ideas").on("created", renderIdea)
+
         }
 
         init();
+
 
     </script>
 </body>
