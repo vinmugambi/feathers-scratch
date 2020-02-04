@@ -42,13 +42,3 @@ app.publish(data => app.channel("stream"));
 const PORT = process.env.PORT || 3030;
 
 app.listen(PORT).on("listening", () => console.log(`Feathers app listening on 127.0.0.1:${PORT}`));
-
-
-// app.service("ideas").create({
-//     text: "Build a feathers app",
-//     tech: "Feathers",
-//     viewer: "Jane Doe",
-//     time: moment().format("h:mm:ss a")
-// })
-
-app.service("ideas").find();
