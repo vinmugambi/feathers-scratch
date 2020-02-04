@@ -35,7 +35,7 @@ app.configure(express.rest());
 
 app.use("/ideas", new IdeaService());
 
-app.on("connection", conn => app.channel("  ").join(conn));
+app.on("connection", conn => app.channel("stream").join(conn));
 
 app.publish(data => app.channel("stream"));
 
